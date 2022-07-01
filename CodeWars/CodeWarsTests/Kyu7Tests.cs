@@ -20,5 +20,32 @@ namespace CodeWarsTests
 
             Assert.Equal(expectedResult, result);
         }
+
+        [Fact]
+        public void BusInOut()
+        {
+            var peopleList = new List<int[]>() 
+            { 
+                new[] { 10, 0 }, 
+                new[] { 3, 5 }, 
+                new[] { 5, 8 } 
+            };
+            Assert.Equal(5, Kyu7.BusInOut(peopleList));
+        }
+
+        [Fact]
+        public void BusInOutSecond()
+        {
+            var peopleList = new List<int[]>() 
+            { 
+                new[] { 3, 0 }, 
+                new[] { 9, 1 }, 
+                new[] { 4, 10 }, 
+                new[] { 12, 2 }, 
+                new[] { 6, 1 }, 
+                new[] { 7, 10 } 
+            };
+            Assert.Equal(17, Kyu7.BusInOut(peopleList));
+        }
     }
 }
