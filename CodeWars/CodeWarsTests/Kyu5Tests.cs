@@ -25,5 +25,25 @@ namespace CodeWarsTests
 
             Assert.Equal(expectedResult, result);
         }
+
+        [Theory]
+        [InlineData("10.0.0.0", "10.0.0.50", 50)]
+        [InlineData("20.0.0.10", "20.0.1.0", 246)]
+        public void IpsBetween(string start, string end, long expectedResult)
+        {
+            var result = Kyu5.IpsBetween(start, end);
+
+            Assert.Equal(expectedResult, result);
+        }
+        
+        [Theory]
+        [InlineData("10.0.0.0", "10.0.0.50", 50)]
+        [InlineData("20.0.0.10", "20.0.1.0", 246)]
+        public void IpsBetweenWithLinq(string start, string end, long expectedResult)
+        {
+            var result = Kyu5.IpsBetween(start, end);
+
+            Assert.Equal(expectedResult, result);
+        }
     }
 }

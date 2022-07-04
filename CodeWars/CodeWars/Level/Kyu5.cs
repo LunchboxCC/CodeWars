@@ -36,5 +36,30 @@ namespace CodeWars.Level
             var time = TimeSpan.FromSeconds(seconds);
             return string.Format($"{time.Hours:D2}:{time.Minutes:D2}:{time.Seconds:D2}");
         }
+
+        public static long IpsBetween(string start, string end)
+        {
+            long startSum = 0;
+            long endSum = 0;
+
+            int[] arrStart = Array.ConvertAll(start.Split("."), int.Parse);
+            int[] arrEnd = Array.ConvertAll(end.Split("."), int.Parse);
+
+            for (int i = 0; i < 4; i++) 
+            {
+                startSum += (long)(arrStart[i] * Math.Pow(256, 4 - i - 1));
+                endSum += (long)(arrEnd[i] * Math.Pow(256, 4 - i - 1));
+            }
+
+            return endSum - startSum;
+        }
+
+        public static long IpsBetweenWithLinq(string start, string end)
+        {
+            var startSum = start.Split(".").Select((element, index) => Convert.ToInt32(element) * Math.Pow(256, 3 - index)).Sum();
+            var endSum = end.Split(".").Select((element, index) => Convert.ToInt32(element) * Math.Pow(256, 3 - index)).Sum();
+
+            return (long)(endSum - startSum);
+        }
     }
 }
