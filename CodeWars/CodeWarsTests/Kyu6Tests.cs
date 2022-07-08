@@ -25,5 +25,29 @@ namespace CodeWarsTests
 
             Assert.True(result);
         }
+
+        [Theory]
+        [InlineData("abc#d##c", "ac")]
+        [InlineData("abc####d##c#", "")]
+        public void CleanString(string s, string expectedResult)
+        {
+            var result = Kyu6.CleanString(s);
+
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
+        public void FindMissingLetter()
+        {
+            Assert.Equal('e', Kyu6.FindMissingLetter(new[] { 'a', 'b', 'c', 'd', 'f' }));
+            Assert.Equal('P', Kyu6.FindMissingLetter(new[] { 'O', 'Q', 'R', 'S' }));
+        }
+
+        [Fact]
+        public void Wave()
+        {
+            Assert.Equal(new List<string> { "Hello", "hEllo", "heLlo", "helLo", "hellO" }, Kyu6.Wave("hello"));
+            Assert.Equal(new List<string> { "Two words", "tWo words", "twO words", "two Words", "two wOrds", "two woRds", "two worDs", "two wordS" }, Kyu6.Wave("two words"));
+        }
     }
 }

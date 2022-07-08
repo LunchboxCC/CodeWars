@@ -31,5 +31,39 @@ namespace CodeWars.Level
             return !letters.Where(l => !str.Contains(l)).Any();
             //return letters.Where(l => Char.IsLetter(l)).Distinct().Count() == 26;
         }
+
+        public static string CleanString(string s)
+        {
+            //var sb = new StringBuilder();
+            var stack = new Stack<char>();
+            
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == '#')
+                    stack.TryPop(out char result);
+                else
+                    stack.Push(s[i]);
+            }
+
+            return new string(stack.Reverse().ToArray());
+        }
+
+        public static List<string> Wave(string str)
+        {
+            var list = str.Select((c, i) => str.Substring(0, i) + char.ToUpper(c) + str.Substring(i + 1)).Where(s => s != str).ToList();
+
+            return list;
+        }
+
+        public static char FindMissingLetter(char[] array)
+        {
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                if (Convert.ToChar(array[i] + 1) != array[i + 1])
+                    return Convert.ToChar(array[i] + 1);
+            }
+
+            return ' ';
+        }
     }
 }
