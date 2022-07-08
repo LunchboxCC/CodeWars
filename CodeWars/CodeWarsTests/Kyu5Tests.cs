@@ -45,5 +45,15 @@ namespace CodeWarsTests
 
             Assert.Equal(expectedResult, result);
         }
+
+        [Theory]
+        [InlineData("Pig latin is cool", "igPay atinlay siay oolcay")]
+        [InlineData("This is my string", "hisTay siay ymay tringsay")]
+        public void PigIt(string str, string expectedResult)
+        {
+            var result = Kyu5.PigIt(str);
+
+            Assert.Equal(expectedResult, result);
+        }
     }
 }

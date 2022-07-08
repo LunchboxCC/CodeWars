@@ -61,5 +61,18 @@ namespace CodeWars.Level
 
             return (long)(endSum - startSum);
         }
+
+        public static string PigIt(string str)
+        {
+            var arr = str.Split(" ");
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (Char.IsLetter(arr[i][0]))
+                    arr[i] = arr[i].Substring(1) + arr[i][0] + "ay";
+            }
+
+            return String.Join(" ", arr);
+        }
     }
 }
