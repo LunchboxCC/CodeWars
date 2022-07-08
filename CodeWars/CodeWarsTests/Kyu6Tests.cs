@@ -15,5 +15,15 @@ namespace CodeWarsTests
 
             Assert.Equal(expectedResult, result);
         }
+
+        [Fact]
+        public void IsPangram()
+        {
+            var str = "The quick brown fox jumps over the lazy dog";
+
+            var result = Kyu6.IsPangram(str);
+
+            Assert.True(result);
+        }
     }
 }

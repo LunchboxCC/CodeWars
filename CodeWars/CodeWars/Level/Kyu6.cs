@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CodeWars.Level
@@ -19,6 +21,15 @@ namespace CodeWars.Level
             var binary = Convert.ToString(n, 2);
 
             return binary.Count(b => b == '1');
+        }
+
+        public static bool IsPangram(string str)
+        {          
+            var letters = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+            str = str.ToLower();
+
+            return !letters.Where(l => !str.Contains(l)).Any();
+            //return letters.Where(l => Char.IsLetter(l)).Distinct().Count() == 26;
         }
     }
 }
