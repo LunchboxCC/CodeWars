@@ -55,5 +55,16 @@ namespace CodeWarsTests
 
             Assert.Equal(expectedResult, result);
         }
+
+        [Theory]
+        [InlineData(5, 1)]
+        [InlineData(25, 6)]
+        [InlineData(531, 131)]
+        public void TrailingZeros(int n, int expectedResult)
+        {
+            var result = Kyu5.TrailingZeros(n);
+
+            Assert.Equal(expectedResult, result);
+        }
     }
 }
