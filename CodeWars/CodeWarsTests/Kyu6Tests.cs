@@ -49,5 +49,11 @@ namespace CodeWarsTests
             Assert.Equal(new List<string> { "Hello", "hEllo", "heLlo", "helLo", "hellO" }, Kyu6.Wave("hello"));
             Assert.Equal(new List<string> { "Two words", "tWo words", "twO words", "two Words", "two wOrds", "two woRds", "two worDs", "two wordS" }, Kyu6.Wave("two words"));
         }
+
+        [Fact]
+        public void MultiplesOf3And5()
+        {
+            Assert.Equal(23, Kyu6.Solution(10));
+        }
     }
 }

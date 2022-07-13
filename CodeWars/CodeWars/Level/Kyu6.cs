@@ -65,5 +65,10 @@ namespace CodeWars.Level
 
             return ' ';
         }
+
+        public static int Solution(int value)
+        {
+            return Enumerable.Range(0, value).Where(n => n % 3 == 0 || n % 5 == 0).Sum();
+        }
     }
 }
