@@ -66,5 +66,11 @@ namespace CodeWarsTests
 
             Assert.Equal(expectedResult, result);
         }
+
+        [Fact]
+        public void Anagrams()
+        {
+            Assert.Equal(new List<string> { "carer", "arcre", "carre" }, Kyu5.Anagrams("racer", new List<string> { "carer", "arcre", "carre", "racrs", "racers", "arceer", "raccer", "carrer", "cerarr" }));
+        }
     }
 }

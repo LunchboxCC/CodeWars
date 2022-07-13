@@ -86,5 +86,21 @@ namespace CodeWars.Level
 
             return count;
         }
+
+        public static List<string> Anagrams(string word, List<string> words)
+        {
+            var dict = word.GroupBy(c => c).ToDictionary(k => k.Key, v => v.Count());
+            var list = new List<string>();
+
+            word = new string (word.OrderBy(c => c).ToArray());
+
+            foreach (var item in words)
+            {
+                if (word.Equals(new string(item.OrderBy(c => c).ToArray())))
+                    list.Add(item);
+            }
+
+            return list;
+        }
     }
 }
