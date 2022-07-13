@@ -53,7 +53,17 @@ namespace CodeWarsTests
         [Fact]
         public void MultiplesOf3And5()
         {
-            Assert.Equal(23, Kyu6.Solution(10));
+            Assert.Equal(23, Kyu6.MultiplesOf3And5(10));
+        }
+
+        [Theory]
+        [InlineData(new string[] { ":D", ":~)", ";~D", ":)" }, 4)]
+        [InlineData(new string[] { ":)", ":(", ":D", ":O", ":;" }, 2)]
+        [InlineData(new string[] { ";]", ":[", ";*", ":$", ";-D" }, 1)]
+        [InlineData(new string[] { ";", ")", ";*", ":$", "8-D" }, 0)]
+        public void CountSmileys(string[] smileys, int expectedResult)
+        {
+            Assert.Equal(expectedResult, Kyu6.CountSmileys(smileys));
         }
     }
 }
