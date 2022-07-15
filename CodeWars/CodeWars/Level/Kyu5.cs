@@ -107,5 +107,20 @@ namespace CodeWars.Level
         {
             return arr.OrderBy(n => n == 0).ToArray();
         }
+        public static string Rgb(int r, int g, int b)
+        {
+            //char[] hex = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+            //int[] rgb = { r, g, b };
+
+            //rgb = rgb.Select(i => i < 0 || i > 255 ? (i / 255) * 255 : i).ToArray();
+
+            //return string.Join("", rgb.Select(i => hex[i / 16] + "" + hex[i % 16]));
+
+            r = Math.Clamp(r, 0, 255);
+            g = Math.Clamp(g, 0, 255);
+            b = Math.Clamp(b, 0, 255);
+
+            return r.ToString("X2") + g.ToString("X2") + b.ToString("X2");
+        }
     }
 }

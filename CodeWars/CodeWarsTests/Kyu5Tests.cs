@@ -78,5 +78,17 @@ namespace CodeWarsTests
         {
             Assert.Equal(new int[] { 1, 2, 1, 1, 3, 1, 0, 0, 0, 0 }, Kyu5.MoveZeroes(new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 }));
         }
+
+        [Fact]
+        public void Rgb()
+        {
+            Assert.Equal("FFFFFF", Kyu5.Rgb(255, 255, 255));
+            Assert.Equal("FFFFFF", Kyu5.Rgb(255, 255, 300));
+            Assert.Equal("000000", Kyu5.Rgb(0, 0, 0));
+            Assert.Equal("9400D3", Kyu5.Rgb(148, 0, 211));
+            Assert.Equal("9400D3", Kyu5.Rgb(148, -20, 211));
+            Assert.Equal("90C3D4", Kyu5.Rgb(144, 195, 212));
+            Assert.Equal("D4350C", Kyu5.Rgb(212, 53, 12));
+        }
     }
 }
