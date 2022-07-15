@@ -65,5 +65,16 @@ namespace CodeWarsTests
         {
             Assert.Equal(expectedResult, Kyu6.CountSmileys(smileys));
         }
+
+        //[Theory]
+        //[InlineData("", "")]
+        //[InlineData("AAAABBBCCDAABBB", "ABCDAB")]
+        //public void UniqueInOrder(IEnumerable<T> iterable, IEnumerable<T> expectedResult)
+        [Fact]
+        public void UniqueInOrder()
+        {
+            Assert.Equal("", Kyu6.UniqueInOrder(""));
+            Assert.Equal("ABCDAB", Kyu6.UniqueInOrder("AAAABBBCCDAABBB"));
+        }
     }
 }

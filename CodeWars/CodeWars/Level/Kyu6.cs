@@ -77,5 +77,23 @@ namespace CodeWars.Level
 
             return smileys.Count(s => regex.IsMatch(s));
         }
+
+        public static IEnumerable<T> UniqueInOrder<T>(IEnumerable<T> iterable)
+        {
+            var result = new List<T>();
+            var previous = default(T);
+
+            foreach (var element in iterable)
+            {
+                if (!element.Equals(previous))
+                {
+                    result.Add(element);
+                    previous = element;
+                }
+            }
+
+            return result;
+            //return iterable.Where((e, i) => i == 0 || !e.Equals(iterable.ElementAt(i - 1)));
+        }
     }
 }
