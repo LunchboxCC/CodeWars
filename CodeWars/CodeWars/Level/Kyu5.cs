@@ -102,5 +102,10 @@ namespace CodeWars.Level
 
             return list;
         }
+
+        public static int[] MoveZeroes(int[] arr)
+        {
+            return arr.OrderBy(n => n == 0).ToArray();
+        }
     }
 }

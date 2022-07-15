@@ -72,5 +72,11 @@ namespace CodeWarsTests
         {
             Assert.Equal(new List<string> { "carer", "arcre", "carre" }, Kyu5.Anagrams("racer", new List<string> { "carer", "arcre", "carre", "racrs", "racers", "arceer", "raccer", "carrer", "cerarr" }));
         }
+
+        [Fact]
+        public void MoveZeroes()
+        {
+            Assert.Equal(new int[] { 1, 2, 1, 1, 3, 1, 0, 0, 0, 0 }, Kyu5.MoveZeroes(new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 }));
+        }
     }
 }
