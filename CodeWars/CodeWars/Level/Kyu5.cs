@@ -122,5 +122,29 @@ namespace CodeWars.Level
 
             return r.ToString("X2") + g.ToString("X2") + b.ToString("X2");
         }
+
+        public static string[] DirReduc(String[] arr)
+        {
+            string[] directions = { "NORTHSOUTH", "SOUTHNORTH", "WESTEAST", "EASTWEST" };
+
+            int dirCount = 0;
+            var list = arr.ToList();
+
+            while (list.Count != dirCount)
+            {
+                dirCount = list.Count;
+
+                for (int i = 1; i < list.Count; i++)
+                {
+                    if (directions.Contains(list[i - 1] + list[i]))
+                    {
+                        list.RemoveRange(i - 1, 2);
+                        break;
+                    }
+                }
+            }
+
+            return list.ToArray();
+        }
     }
 }

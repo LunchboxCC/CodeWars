@@ -90,5 +90,13 @@ namespace CodeWarsTests
             Assert.Equal("90C3D4", Kyu5.Rgb(144, 195, 212));
             Assert.Equal("D4350C", Kyu5.Rgb(212, 53, 12));
         }
+
+        [Fact]
+        public void DirReduc()
+        {
+            string[] a = new string[] { "NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST" };
+            string[] b = new string[] { "WEST" };
+            Assert.Equal(b, Kyu5.DirReduc(a));
+        }
     }
 }
