@@ -76,5 +76,11 @@ namespace CodeWarsTests
             Assert.Equal("", Kyu6.UniqueInOrder(""));
             Assert.Equal("ABCDAB", Kyu6.UniqueInOrder("AAAABBBCCDAABBB"));
         }
+
+        [Fact]
+        public void DigitalRoot()
+        {
+            Assert.Equal(6, Kyu6.DigitalRoot(456));
+        }
     }
 }

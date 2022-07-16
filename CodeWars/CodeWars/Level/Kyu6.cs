@@ -95,5 +95,14 @@ namespace CodeWars.Level
             return result;
             //return iterable.Where((e, i) => i == 0 || !e.Equals(iterable.ElementAt(i - 1)));
         }
+
+        public static int DigitalRoot(long n)
+        {
+            if (n < 10)
+                return (int)n;
+
+            int sum = n.ToString().Select(n => (int)Char.GetNumericValue(n)).Sum();
+            return DigitalRoot(sum);
+        }
     }
 }
