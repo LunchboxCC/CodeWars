@@ -82,5 +82,16 @@ namespace CodeWarsTests
         {
             Assert.Equal(6, Kyu6.DigitalRoot(456));
         }
+
+        [Fact]
+        public void ArrayDiff()
+        {
+            Assert.Equal(new int[] { 2 }, Kyu6.ArrayDiff(new int[] { 1, 2 }, new int[] { 1 }));
+            Assert.Equal(new int[] { 2, 2 }, Kyu6.ArrayDiff(new int[] { 1, 2, 2 }, new int[] { 1 }));
+            Assert.Equal(new int[] { 1 }, Kyu6.ArrayDiff(new int[] { 1, 2, 2 }, new int[] { 2 }));
+            Assert.Equal(new int[] { 1, 2, 2 }, Kyu6.ArrayDiff(new int[] { 1, 2, 2 }, new int[] { }));
+            Assert.Equal(new int[] { }, Kyu6.ArrayDiff(new int[] { }, new int[] { 1, 2 }));
+            Assert.Equal(new int[] { 3 }, Kyu6.ArrayDiff(new int[] { 1, 2, 3 }, new int[] { 1, 2 }));
+        }
     }
 }

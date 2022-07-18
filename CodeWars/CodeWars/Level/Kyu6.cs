@@ -104,5 +104,10 @@ namespace CodeWars.Level
             int sum = n.ToString().Select(n => (int)Char.GetNumericValue(n)).Sum();
             return DigitalRoot(sum);
         }
+
+        public static int[] ArrayDiff(int[] a, int[] b)
+        {
+            return a.Where(x => !b.Contains(x)).ToArray();
+        }
     }
 }
