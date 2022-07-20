@@ -93,5 +93,31 @@ namespace CodeWarsTests
             Assert.Equal(new int[] { }, Kyu6.ArrayDiff(new int[] { }, new int[] { 1, 2 }));
             Assert.Equal(new int[] { 3 }, Kyu6.ArrayDiff(new int[] { 1, 2, 3 }, new int[] { 1, 2 }));
         }
+
+        [Fact]
+        public static void Meeting()
+        {
+            var expected = "(ARNO, ANN)(BELL, JOHN)(CORNWELL, ALEX)(DORNY, ABBA)(KERN, LEWIS)(KORN, ALEX)(META, GRACE)(SCHWARZ, VICTORIA)(STAN, MADISON)(STAN, MEGAN)(WAHL, ALEXIS)";
+            var input = "Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn";
+
+            Assert.Equal(expected, Kyu6.Meeting(input));
+        }
+
+        [Fact]
+        public static void Find()
+        {
+            int[] exampleTest2 = { 206847684, 1056521, 7, 17, 1901, 21104421, 7, 1, 35521, 1, 7781 };
+            Assert.Equal(206847684, Kyu6.Find(exampleTest2));
+        }
+
+        [Fact]
+        public static void Likes()
+        {
+            Assert.Equal("no one likes this", Kyu6.Likes(new string[0]));
+            Assert.Equal("Peter likes this", Kyu6.Likes(new string[] { "Peter" }));
+            Assert.Equal("Jacob and Alex like this", Kyu6.Likes(new string[] { "Jacob", "Alex" }));
+            Assert.Equal("Max, John and Mark like this", Kyu6.Likes(new string[] { "Max", "John", "Mark" }));
+            Assert.Equal("Alex, Jacob and 2 others like this", Kyu6.Likes(new string[] { "Alex", "Jacob", "Mark", "Max" }));
+        }
     }
 }

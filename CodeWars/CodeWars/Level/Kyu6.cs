@@ -109,5 +109,51 @@ namespace CodeWars.Level
         {
             return a.Where(x => !b.Contains(x)).ToArray();
         }
+
+        public static string Meeting(string s)
+        {
+            string[] people = s.Split(";");
+            string[] result = new string[people.Length];
+
+            for (int i = 0; i < people.Length; i++)
+            {
+                int colon = people[i].IndexOf(':');
+                result[i] = $"({people[i].Substring(colon + 1)}, {people[i].Substring(0, colon)})".ToUpper();
+            }
+
+            return string.Join("", result.OrderBy(p => p.Substring(1)));
+        }
+
+        public static int Find(int[] integers)
+        {
+            //var evenList = new List<int>();
+            //var oddList = new List<int>();
+
+            //foreach (int i in integers)
+            //{
+            //    if (i % 2 == 0)
+            //        evenList.Add(i);
+            //    else
+            //        oddList.Add(i);
+            //}
+
+            //return oddList.Count > evenList.Count ? evenList.ElementAt(0) : oddList.ElementAt(0);
+
+            return integers.GroupBy(i => i % 2).FirstOrDefault(kv => kv.Count() == 1).First();
+        }
+
+        public static string Likes(string[] name)
+        {
+            string result = name.Length switch
+            {
+                0 => "no one likes this",
+                1 => $"{name[0]} likes this",
+                2 => $"{name[0]} and {name[1]} like this",
+                3 => $"{name[0]}, {name[1]} and {name[2]} like this",
+                _ => $"{name[0]}, {name[1]} and {name.Length - 2} others like this"
+            };
+
+            return result;
+        }
     }
 }
