@@ -155,5 +155,10 @@ namespace CodeWars.Level
 
             return result;
         }
+
+        public static int FindIt(int[] seq)
+        {
+            return seq.GroupBy(x => x).Where(kv => kv.Count() % 2 == 1).FirstOrDefault().FirstOrDefault();
+        }
     }
 }

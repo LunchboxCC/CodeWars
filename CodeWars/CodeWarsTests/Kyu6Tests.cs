@@ -119,5 +119,11 @@ namespace CodeWarsTests
             Assert.Equal("Max, John and Mark like this", Kyu6.Likes(new string[] { "Max", "John", "Mark" }));
             Assert.Equal("Alex, Jacob and 2 others like this", Kyu6.Likes(new string[] { "Alex", "Jacob", "Mark", "Max" }));
         }
+
+        [Fact]
+        public static void GetIt()
+        {
+            Assert.Equal(5, Kyu6.FindIt(new[] { 20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5 }));
+        }
     }
 }
