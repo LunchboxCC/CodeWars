@@ -98,5 +98,11 @@ namespace CodeWarsTests
             string[] b = new string[] { "WEST" };
             Assert.Equal(b, Kyu5.DirReduc(a));
         }
+
+        [Fact]
+        public void Rot13()
+        {
+            Assert.Equal("Grfg", Kyu5.Rot13("Test"));
+        }
     }
 }

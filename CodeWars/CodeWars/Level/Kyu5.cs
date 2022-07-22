@@ -146,5 +146,24 @@ namespace CodeWars.Level
 
             return list.ToArray();
         }
+
+        public static string Rot13(string message)
+        {
+            var result = "";
+
+            for (int i = 0; i < message.Length; i++)
+            {
+                char lowerC = char.ToLower(message[i]);
+
+                if (lowerC >= 'a' && lowerC <= 'm')
+                    result += (char)(message[i] + 13);
+                else if (lowerC >= 'n' && lowerC <= 'z')
+                    result += (char)(message[i] - 13);
+                else
+                    result += message[i];
+            }
+
+            return result;
+        }
     }
 }
