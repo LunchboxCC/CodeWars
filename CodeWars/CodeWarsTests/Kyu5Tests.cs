@@ -1,4 +1,5 @@
 ﻿using CodeWars.Level;
+using System.Numerics;
 
 namespace CodeWarsTests
 {
@@ -103,6 +104,19 @@ namespace CodeWarsTests
         public void Rot13()
         {
             Assert.Equal("Grfg", Kyu5.Rot13("Test"));
+        }
+
+        [Fact]
+        public void GenerateDiagonal()
+        {
+            Assert.Equal(new BigInteger[] { 1, 3, 6, 10, 15 }, Kyu5.GenerateDiagonal(2, 5));
+        }
+
+        [Fact]
+        public void FirstNonRepeatingLetter()
+        {
+            Assert.Equal("e", Kyu5.FirstNonRepeatingLetter("moonmen"));
+            Assert.Equal("", Kyu5.FirstNonRepeatingLetter("tennet"));
         }
     }
 }

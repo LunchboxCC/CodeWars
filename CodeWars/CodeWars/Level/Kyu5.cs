@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -164,6 +165,46 @@ namespace CodeWars.Level
             }
 
             return result;
+        }
+
+        public static BigInteger[] GenerateDiagonal(int n, int l)
+        {
+            int[][] jagged = new int[l + n][];
+            var result = new BigInteger[l];
+
+            for (int i = 0; i < l + n; i++)
+            {
+                jagged[i] = new int[i + 1];
+                
+                for (int j = 0; j < i + 1; j++)
+                {
+                    if (j == 0 || j == i)
+                        jagged[i][j] = 1;
+                    else
+                        jagged[i][j] = jagged[i - 1][j - 1] + jagged[i - 1][j];
+
+                    if (i >= n && i - n == j)
+                        result[i - n] = jagged[i][j];
+                }
+            }
+
+            return result;
+        }
+
+        public static string FirstNonRepeatingLetter(string s)
+        {        
+            var kv = s.ToLower().GroupBy(c => c).Where(kv => kv.Count() == 1).FirstOrDefault();
+
+            if (kv != null)
+            {
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (char.ToLower(s[i]).Equals(kv.Key))
+                        return s[i].ToString();
+                }
+            }
+
+            return "";
         }
     }
 }
