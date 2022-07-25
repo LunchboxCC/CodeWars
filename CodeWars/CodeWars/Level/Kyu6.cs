@@ -160,5 +160,15 @@ namespace CodeWars.Level
         {
             return seq.GroupBy(x => x).Where(kv => kv.Count() % 2 == 1).FirstOrDefault().FirstOrDefault();
         }
+
+        public static string CreatePhoneNumber(int[] numbers)
+        {
+            return $"({string.Join("",numbers.Take(3))}) {string.Join("", numbers.Skip(3).Take(3))}-{string.Join("", numbers.Skip(6).Take(4))}";
+        }
+
+        public static int DuplicateCount(string str)
+        {
+            return str.GroupBy(char.ToUpper).Count(kv => kv.Count() > 1);
+        }
     }
 }

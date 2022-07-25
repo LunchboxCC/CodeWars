@@ -125,5 +125,17 @@ namespace CodeWarsTests
         {
             Assert.Equal(5, Kyu6.FindIt(new[] { 20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5 }));
         }
+
+        [Fact]
+        public static void CreatePhoneNumber()
+        {
+            Assert.Equal("(123) 456-7890", Kyu6.CreatePhoneNumber(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 }));
+        }
+
+        [Fact]
+        public static void DuplicateCount()
+        {
+            Assert.Equal(2, Kyu6.DuplicateCount("aabBcde"));
+        }
     }
 }

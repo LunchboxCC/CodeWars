@@ -118,5 +118,18 @@ namespace CodeWarsTests
             Assert.Equal("e", Kyu5.FirstNonRepeatingLetter("moonmen"));
             Assert.Equal("", Kyu5.FirstNonRepeatingLetter("tennet"));
         }
+
+        [Fact]
+        public void OrderWeight()
+        {
+            Assert.Equal("2000 103 123 4444 99", Kyu5.OrderWeight("103 123 4444 99 2000"));
+        }
+
+        [Fact]
+        public void Score()
+        {
+            Assert.Equal(450, Kyu5.Score(new int[] { 2, 4, 4, 5, 4 }));
+
+        }
     }
 }

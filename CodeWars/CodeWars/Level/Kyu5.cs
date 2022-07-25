@@ -206,5 +206,63 @@ namespace CodeWars.Level
 
             return "";
         }
+
+        public static string OrderWeight(string strng)
+        {
+            var split = strng.Split(" ");
+
+            return string.Join(" ", split.OrderBy(s => s.Sum(char.GetNumericValue)).ThenBy(s => s));
+        }
+
+        public static int Score(int[] dice)
+        {
+            //O(2 * n + 6)
+            //int score = 0;
+            //var counts = dice.GroupBy(d => d).ToDictionary(k => k.Key, v => v.Count());
+
+            //for (int i = 0; i < counts.Count; i++)
+            //{
+            //    var kv = counts.ElementAt(i);
+
+            //    if (kv.Value >= 3)
+            //    {
+            //        score += kv.Key * 100;
+            //        if (kv.Key == 1)
+            //            score += 900;
+            //    }
+
+            //    if (kv.Key == 1)
+            //        score += kv.Value % 3 * 100;
+            //    else if (kv.Key == 5)
+            //        score += kv.Value % 3 * 50;
+            //}
+
+            //return score;
+
+            //O(n)
+            int score = 0;
+            int[] counts = new int[6];
+
+            for (int i = 0; i < dice.Length; i++)
+            {
+                int die = dice[i];
+                counts[die - 1]++;
+
+                if (counts[die - 1] == 3)
+                {
+                    score += die * 100;
+                    if (die == 1)
+                        score += -200 + 900;
+                    else if (die == 5)
+                        score -= 100;
+                }
+                else if (die == 1)
+                    score += 100;
+                else if (die == 5)
+                    score += 50;
+            }
+
+            return score;
+        }
     }
 }
