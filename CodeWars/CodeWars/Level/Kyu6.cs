@@ -170,5 +170,35 @@ namespace CodeWars.Level
         {
             return str.GroupBy(char.ToUpper).Count(kv => kv.Count() > 1);
         }
+
+        public static bool IsValidWalk(string[] walk)
+        {
+            if (walk.Length != 10)
+                return false;
+
+            int vertical = 0;
+            int horizontal = 0;
+            
+            foreach (string str in walk)
+            {
+                switch (str)
+                {
+                    case "n":
+                        vertical++;
+                        break;
+                    case "s":
+                        vertical--;
+                        break;
+                    case "w":
+                        horizontal++;
+                        break;
+                    case "e":
+                        horizontal--;
+                        break;
+                }
+            }
+
+            return vertical == 0 && horizontal == 0;
+        }
     }
 }

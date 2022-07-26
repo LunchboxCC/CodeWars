@@ -264,5 +264,36 @@ namespace CodeWars.Level
 
             return score;
         }
+
+        public static bool Scramble(string str1, string str2)
+        {
+            ////var ordered = str1.OrderBy(c => str2);
+            ////var groups = str1.GroupBy(c => c).Where(kv => str2.Contains(kv.Key));
+            //var list = new List<char>();
+            //int count = 0;
+
+            //for (int i = 0; i < str1.Length; i++)
+            //{
+            //    if (str2.Contains(str1[0]))
+
+            //}
+
+            int[] countArray = new int[26];
+            foreach (char c in str2)
+            {
+                countArray[c - 'a']++;
+            }
+
+            foreach (char c in str1)
+            {
+                if (countArray[c - 'a'] > 0)
+                    countArray[c - 'a']--;
+            }
+
+            if (countArray.Sum() == 0)
+                return true;
+            else
+                return false;
+        }
     }
 }

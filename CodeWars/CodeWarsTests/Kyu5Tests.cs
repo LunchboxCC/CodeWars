@@ -129,7 +129,12 @@ namespace CodeWarsTests
         public void Score()
         {
             Assert.Equal(450, Kyu5.Score(new int[] { 2, 4, 4, 5, 4 }));
+        }
 
+        [Fact]
+        public void Scramblies()
+        {
+            Assert.Equal(true, Kyu5.Scramble("cedewaraaossoqqyt", "codewars"));
         }
     }
 }

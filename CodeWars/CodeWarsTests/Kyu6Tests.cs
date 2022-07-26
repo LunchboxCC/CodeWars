@@ -137,5 +137,11 @@ namespace CodeWarsTests
         {
             Assert.Equal(2, Kyu6.DuplicateCount("aabBcde"));
         }
+
+        [Fact]
+        public static void IsValidWalk()
+        {
+            Assert.False(Kyu6.IsValidWalk(new string[] { "n", "n", "n", "s", "n", "s", "n", "s", "n", "s" }));
+        }
     }
 }
