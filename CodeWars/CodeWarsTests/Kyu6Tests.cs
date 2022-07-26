@@ -143,5 +143,11 @@ namespace CodeWarsTests
         {
             Assert.False(Kyu6.IsValidWalk(new string[] { "n", "n", "n", "s", "n", "s", "n", "s", "n", "s" }));
         }
+
+        [Fact]
+        public static void AlphabetPosition()
+        {
+            Assert.Equal("20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20", Kyu6.AlphabetPosition("The narwhal bacons at midnight."));
+        }
     }
 }

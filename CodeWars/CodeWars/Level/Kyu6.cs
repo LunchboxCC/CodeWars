@@ -200,5 +200,18 @@ namespace CodeWars.Level
 
             return vertical == 0 && horizontal == 0;
         }
+
+        public static string AlphabetPosition(string text)
+        {
+            var list = new List<int>();
+
+            foreach (char c in text)
+            {
+                if (char.IsLetter(c))
+                    list.Add(char.ToLower(c) - 'a' + 1);
+            }
+
+            return string.Join(" ", list);
+        }
     }
 }
