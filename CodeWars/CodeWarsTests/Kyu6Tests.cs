@@ -149,5 +149,11 @@ namespace CodeWarsTests
         {
             Assert.Equal("20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20", Kyu6.AlphabetPosition("The narwhal bacons at midnight."));
         }
+
+        [Fact]
+        public static void Persistence()
+        {
+            Assert.Equal(2, Kyu6.Persistence(25));
+        }
     }
 }

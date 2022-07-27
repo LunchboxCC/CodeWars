@@ -213,5 +213,18 @@ namespace CodeWars.Level
 
             return string.Join(" ", list);
         }
+
+        public static int Persistence(long n)
+        {
+            int count = 0;
+
+            while (n > 9)
+            {
+                n = n.ToString().Select(x => (long)char.GetNumericValue(x)).Aggregate((x, y) => x * y);
+                count++;
+            }
+
+            return count;
+        }
     }
 }
