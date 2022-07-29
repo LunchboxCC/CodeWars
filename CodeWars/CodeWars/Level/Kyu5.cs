@@ -295,5 +295,42 @@ namespace CodeWars.Level
             else
                 return false;
         }
+
+        public static int[] Snail(int[][] array)
+        {
+            bool xRight = true;
+            bool yUp = true;
+            int n = array.Length;
+            int reps = n;
+
+            var result = new List<int>();
+
+            return new int[0];
+
+            /*
+            for (int i = 1; i < reps - 1; i++)
+            {
+                for (int j = 0; j < reps; j++)
+                {
+                    if (xRight)
+                        result.Add(array[i][j]);
+                    else
+                        result.Add(array[i][n - j]);
+                }
+                
+                if (yUp)
+                {
+                    result.Add(array[][])
+                }
+            }
+            */
+
+            /*
+            while (array.Length * array.Length >= result.Count)
+            {
+
+            }
+            */
+        }
     }
 }
