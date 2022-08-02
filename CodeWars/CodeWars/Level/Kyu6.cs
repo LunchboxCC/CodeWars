@@ -226,5 +226,13 @@ namespace CodeWars.Level
 
             return count;
         }
+
+        public static string DuplicateEncode(string word)
+        {
+            word = word.ToLower();
+            var counts = word.GroupBy(c => c).ToDictionary(k => k.Key, v => v.Count());
+
+            return string.Join("", word.Select(c => counts.GetValueOrDefault(c) > 1 ? ")" : "("));
+        }
     }
 }

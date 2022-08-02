@@ -155,5 +155,11 @@ namespace CodeWarsTests
         {
             Assert.Equal(2, Kyu6.Persistence(25));
         }
+
+        [Fact]
+        public static void DuplicateEncode()
+        {
+            Assert.Equal(")())())", Kyu6.DuplicateEncode("Success"));
+        }
     }
 }
