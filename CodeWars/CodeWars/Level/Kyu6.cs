@@ -229,10 +229,32 @@ namespace CodeWars.Level
 
         public static string DuplicateEncode(string word)
         {
+            word = null;
+            word.ToCharArray();
+
             word = word.ToLower();
             var counts = word.GroupBy(c => c).ToDictionary(k => k.Key, v => v.Count());
 
             return string.Join("", word.Select(c => counts.GetValueOrDefault(c) > 1 ? ")" : "("));
+        }
+
+        public static int GetUnique(IEnumerable<int> numbers)
+        {
+            var sorted = numbers.OrderBy(n => n);
+
+            if (sorted.ElementAt(0) != sorted.ElementAt(1))
+                return sorted.ElementAt(0);
+            else
+                return sorted.ElementAt(sorted.Count() - 1);
+
+
+            int first = numbers.First();
+            int count = numbers.Take(3).Count(n => n == first);
+
+            if (count > 1)
+                return numbers.Single(n => n != first);
+            else
+                return first;       
         }
     }
 }

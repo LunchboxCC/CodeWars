@@ -95,7 +95,7 @@ namespace CodeWarsTests
         }
 
         [Fact]
-        public static void Meeting()
+        public void Meeting()
         {
             var expected = "(ARNO, ANN)(BELL, JOHN)(CORNWELL, ALEX)(DORNY, ABBA)(KERN, LEWIS)(KORN, ALEX)(META, GRACE)(SCHWARZ, VICTORIA)(STAN, MADISON)(STAN, MEGAN)(WAHL, ALEXIS)";
             var input = "Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn";
@@ -104,14 +104,14 @@ namespace CodeWarsTests
         }
 
         [Fact]
-        public static void Find()
+        public void Find()
         {
             int[] exampleTest2 = { 206847684, 1056521, 7, 17, 1901, 21104421, 7, 1, 35521, 1, 7781 };
             Assert.Equal(206847684, Kyu6.Find(exampleTest2));
         }
 
         [Fact]
-        public static void Likes()
+        public void Likes()
         {
             Assert.Equal("no one likes this", Kyu6.Likes(new string[0]));
             Assert.Equal("Peter likes this", Kyu6.Likes(new string[] { "Peter" }));
@@ -121,45 +121,55 @@ namespace CodeWarsTests
         }
 
         [Fact]
-        public static void GetIt()
+        public void GetIt()
         {
             Assert.Equal(5, Kyu6.FindIt(new[] { 20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5 }));
         }
 
         [Fact]
-        public static void CreatePhoneNumber()
+        public void CreatePhoneNumber()
         {
             Assert.Equal("(123) 456-7890", Kyu6.CreatePhoneNumber(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 }));
         }
 
         [Fact]
-        public static void DuplicateCount()
+        public void DuplicateCount()
         {
             Assert.Equal(2, Kyu6.DuplicateCount("aabBcde"));
         }
 
         [Fact]
-        public static void IsValidWalk()
+        public void IsValidWalk()
         {
             Assert.False(Kyu6.IsValidWalk(new string[] { "n", "n", "n", "s", "n", "s", "n", "s", "n", "s" }));
         }
 
         [Fact]
-        public static void AlphabetPosition()
+        public void AlphabetPosition()
         {
             Assert.Equal("20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20", Kyu6.AlphabetPosition("The narwhal bacons at midnight."));
         }
 
         [Fact]
-        public static void Persistence()
+        public void Persistence()
         {
             Assert.Equal(2, Kyu6.Persistence(25));
         }
 
         [Fact]
-        public static void DuplicateEncode()
+        public void DuplicateEncode()
         {
             Assert.Equal(")())())", Kyu6.DuplicateEncode("Success"));
+        }
+
+        
+        [InlineData(new[] { 1, 2, 2, 2 }, 1)]
+        [InlineData(new[] { -2, 2, 2, 2 }, -2)]
+        [InlineData(new[] { 11, 11, 14, 11, 11 }, 14)]
+        [Theory]
+        public void GetUnique(IEnumerable<int> numbers, int expectedResult)
+        {
+            Assert.Equal(expectedResult, Kyu6.GetUnique(numbers));
         }
     }
 }
