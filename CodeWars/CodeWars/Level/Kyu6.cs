@@ -259,15 +259,15 @@ namespace CodeWars.Level
 
         public static string[] Solution(string str)
         {
-            string[] result = new string[(str.Length + 1) / 2];
+            if (str.Length % 2 == 1)
+                str += "_";
 
-            for (int i = 0; i < str.Length; i++)
+            string[] result = new string[str.Length / 2];
+
+            for (int i = 0; i < str.Length; i += 2)
             {
-                result[i / 2] += str[i];
+                result[i / 2] += str.Substring(i, 2);
             }
-
-            if (result[result.Length - 1].Length == 1)
-                result[result.Length - 1] += "_";
 
             return result;
         }
