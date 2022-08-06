@@ -171,5 +171,11 @@ namespace CodeWarsTests
         {
             Assert.Equal(expectedResult, Kyu6.GetUnique(numbers));
         }
+
+        [Fact]
+        public void Solution()
+        {
+            Assert.Equal(new string[] { "ab", "c_" }, Kyu6.Solution("abc"));
+        }
     }
 }
