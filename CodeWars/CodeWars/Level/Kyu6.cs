@@ -271,5 +271,37 @@ namespace CodeWars.Level
 
             return result;
         }
+
+        public static int DiagonalDifference(List<List<int>> arr)
+        {
+            int rows = arr.ElementAt(0).ElementAt(0);
+            int primary = 0;
+            int secondary = 0;
+
+            for (int i = 1; i <= rows; i++)
+            {
+                primary += arr.ElementAt(i).ElementAt(i - 1);
+                secondary += arr.ElementAt(i).ElementAt(rows - i);
+            }
+
+            int result = primary - secondary;
+
+            return result >= 0 ? result : result * -1;
+        }
+
+        public static int[] SortArray(int[] array)
+        {
+            var oddQueue = new Queue<int>(array.Where(n => n % 2 == 1).OrderBy(n => n));
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] % 2 == 1)
+                {
+                    array[i] = oddQueue.Dequeue();
+                }
+            }
+
+            return array;
+        }
     }
 }

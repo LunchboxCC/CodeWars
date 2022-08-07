@@ -177,5 +177,35 @@ namespace CodeWarsTests
         {
             Assert.Equal(new string[] { "ab", "c_" }, Kyu6.Solution("abc"));
         }
+
+        [Fact]
+        public void DiagonalDifference()
+        {
+            int n = 3;
+            int[,] rows = { { 11, 2, 4 }, { 4, 5, 6 }, { 10, 8, -12 } };
+
+            var arr = new List<List<int>>();
+            var nRow = new List<int>();
+            nRow.Add(n);
+            arr.Add(nRow);
+            for (int i = 0; i < rows.GetLength(0); i++)
+            {
+                var rowList = new List<int>();
+                for (int j = 0; j < rows.GetLength(0); j++)
+                {
+                    rowList.Add(rows[i, j]);
+                }
+                
+                arr.Add(rowList);
+            }
+
+            Assert.Equal(15, Kyu6.DiagonalDifference(arr));
+        }
+
+        [Fact]
+        public void SortArray()
+        {
+            Assert.Equal(new int[] { 1, 3, 2, 8, 5, 4 }, Kyu6.SortArray(new int[] { 5, 3, 2, 8, 1, 4 }));
+        }
     }
 }
