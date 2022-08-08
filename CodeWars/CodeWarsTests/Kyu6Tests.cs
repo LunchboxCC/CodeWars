@@ -258,5 +258,11 @@ namespace CodeWarsTests
 
             Assert.Equal(expected, Kyu6.SecondLargestPerimeterLinq(input));
         }
+
+        [Fact]
+        public void TowerBuilder()
+        {
+            Assert.Equal(string.Join(",", new[] { "  *  ", " *** ", "*****" }), string.Join(",", Kyu6.TowerBuilder(3)));
+        }
     }
 }

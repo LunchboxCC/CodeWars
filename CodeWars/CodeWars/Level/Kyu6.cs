@@ -421,5 +421,17 @@ namespace CodeWars.Level
         {
             return triangles.Length < 2 ? -1 : triangles.Select((t, i) => KeyValuePair.Create(i, t.Sum())).OrderByDescending(kv => kv.Value).Skip(1).Take(1).First().Key;
         }
+
+        public static string[] TowerBuilder(int nFloors)
+        {
+            string[] tower = new string[nFloors];
+
+            for (int i = 1; i <= nFloors; i++)
+            {
+                tower[i - 1] = new string(' ', nFloors - i) + new string('*', i * 2 - 1) + new string(' ', nFloors - i);
+            }
+
+            return tower;
+        }
     }
 }
