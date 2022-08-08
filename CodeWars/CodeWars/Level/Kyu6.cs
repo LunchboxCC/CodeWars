@@ -296,12 +296,130 @@ namespace CodeWars.Level
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] % 2 == 1)
-                {
                     array[i] = oddQueue.Dequeue();
-                }
             }
 
             return array;
+        }
+
+        public static List<List<string>> SubtitleMaker(string str)
+        {
+            var words = new Queue<string>(str.Split(" "));
+            var endings = new char[] { '.', '?', '!' };
+
+            var subtitles = new List<List<string>>();
+            int n = 5;
+
+            var row = new List<string>();
+
+            while (words.Count > 0)
+            {
+                var word = words.Dequeue();
+
+                row.Add(word);
+
+                if (endings.Contains(word[word.Length - 1]) || row.Count == n)
+                {
+                    subtitles.Add(row);
+                    row = new List<string>();
+                }
+            }
+
+            return subtitles;
+        }
+
+        public static List<List<string>> SubtitleMakerAlt(string str)
+        {
+            var words = new List<string>(str.Split(" "));
+
+            var subtitles = new List<List<string>>();
+            int n = 5;
+
+            for (int i = 0; i < words.Count;)
+            {
+                var row = new List<string>();
+
+                for (int j = 0; j < n; j++)
+                {
+                    var word = words.ElementAt(i + j);
+                    row.Add(word);
+
+                    if (word.EndsWith('.'))
+                        break;
+                }
+
+                subtitles.Add(row);
+                i += row.Count;
+
+                if (words.Count - i < n)
+                    n = words.Count - i;
+            }
+
+            return subtitles;
+        }
+
+        public static List<List<string>> SubtitleMakerAltAlt(string str)
+        {
+            var words = str.Split(" ");
+            var endings = new char[] { '.', '?', '!' };
+            var subtitles = new List<List<string>>();
+            int n = 5;
+
+            var row = new List<string>();
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                var word = words[i];
+
+                row.Add(word);
+
+                if (endings.Contains(word[word.Length - 1]) || row.Count == n)
+                {
+                    subtitles.Add(row);
+                    row = new List<string>();
+                }    
+            }
+
+            return subtitles;
+        }
+
+        public static int SecondLargestPerimeter(int[,] triangles)
+        {
+            var dict = new Dictionary<int, int>();
+
+            for (int i = 0; i < triangles.Length / 3; i++)
+            {
+                int sum = 0;
+
+                for (int j = 0; j < 3; j++)
+                {
+                    sum += triangles[i, j];
+                }
+
+                dict.Add(i, sum);
+            }
+
+            return dict.OrderBy(kv => kv.Value).Skip(1).Take(1).First().Key;
+        }
+
+        public static int SecondLargestPerimeterJagged(int[][] triangles)
+        {
+            if (triangles.Count() < 2)
+                return -1;
+
+            var sums = new Dictionary<int, int>();
+
+            for (int i = 0; i < triangles.Length; i++)
+            {
+                sums.Add(i, triangles[i].Sum());
+            }
+
+            return sums.OrderByDescending(kv => kv.Value).Skip(1).Take(1).First().Key;
+        }
+
+        public static int SecondLargestPerimeterLinq(int[][] triangles)
+        {
+            return triangles.Length < 2 ? -1 : triangles.Select((t, i) => KeyValuePair.Create(i, t.Sum())).OrderByDescending(kv => kv.Value).Skip(1).Take(1).First().Key;
         }
     }
 }

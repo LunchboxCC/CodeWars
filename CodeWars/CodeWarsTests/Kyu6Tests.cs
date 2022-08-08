@@ -207,5 +207,56 @@ namespace CodeWarsTests
         {
             Assert.Equal(new int[] { 1, 3, 2, 8, 5, 4 }, Kyu6.SortArray(new int[] { 5, 3, 2, 8, 1, 4 }));
         }
+
+        [Fact]
+        public void SubtitleMaker()
+        {
+            var expected = new List<List<string>>();
+            expected.Add(new List<string> { "There", "is", "one", "sentence", "that" });
+            expected.Add(new List<string> { "is", "a", "bit", "longer." });
+            expected.Add(new List<string> { "The", "second", "one", "is", "shorter" });
+
+            Assert.Equal(expected, Kyu6.SubtitleMaker("There is one sentence that is a bit longer. The second one is shorter"));
+        }
+
+        [Fact]
+        public void SubtitleMakerAlt()
+        {
+            var expected = new List<List<string>>();
+            expected.Add(new List<string> { "There", "is", "one", "sentence", "that" });
+            expected.Add(new List<string> { "is", "a", "bit", "longer." });
+            expected.Add(new List<string> { "The", "second", "one", "is", "shorter" });
+
+            Assert.Equal(expected, Kyu6.SubtitleMakerAlt("There is one sentence that is a bit longer. The second one is shorter"));
+        }
+
+        [Fact]
+        public void SubtitleMakerAltAlt()
+        {
+            var expected = new List<List<string>>();
+            expected.Add(new List<string> { "There", "is", "one", "sentence", "that" });
+            expected.Add(new List<string> { "is", "a", "bit", "longer." });
+            expected.Add(new List<string> { "The", "second", "one", "is", "shorter" });
+
+            Assert.Equal(expected, Kyu6.SubtitleMakerAltAlt("There is one sentence that is a bit longer. The second one is shorter"));
+        }
+
+        [Fact]
+        public void SecondLargestPerimeter()
+        {
+            var expected = 2;
+            var input = new int[3,3] { { 1, 2, 3 }, { 7, 6, 8 }, { 4, 5, 6 } };
+
+            Assert.Equal(expected, Kyu6.SecondLargestPerimeter(input));
+        }
+
+        [Fact]
+        public void SecondLargestPerimeterJagged()
+        {
+            var expected = 1;
+            var input = new int[4][] { new int[3] { 1, 2, 3 }, new int[3] { 7, 6, 8 }, new int[3] { 4, 5, 6 }, new int[3] { 11, 15, 33 } };
+
+            Assert.Equal(expected, Kyu6.SecondLargestPerimeterLinq(input));
+        }
     }
 }
