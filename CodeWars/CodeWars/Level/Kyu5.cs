@@ -332,5 +332,23 @@ namespace CodeWars.Level
             }
             */
         }
+
+        public static int MaxSequence(int[] arr)
+        {
+            int sum = 0;
+            int max = 0;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 1; j <= arr.Length - i; j++)
+                {
+                    sum = arr.Skip(i).Take(j).Sum();
+                    if (sum > max)
+                        max = sum;
+                }
+            }
+
+            return max;
+        }
     }
 }

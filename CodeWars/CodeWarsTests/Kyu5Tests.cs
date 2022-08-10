@@ -136,5 +136,11 @@ namespace CodeWarsTests
         {
             Assert.Equal(true, Kyu5.Scramble("cedewaraaossoqqyt", "codewars"));
         }
+
+        [Fact]
+        public void MaxSequence()
+        {
+            Assert.Equal(6, Kyu5.MaxSequence(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }));
+        }
     }
 }
