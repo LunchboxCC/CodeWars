@@ -433,5 +433,29 @@ namespace CodeWars.Level
 
             return tower;
         }
+
+        public static string High(string s)
+        {
+            return s.Split(" ").OrderByDescending(w => w.Sum(w => w - 'a' + 1)).First();
+        }
+
+        public static int[] DeleteNth(int[] arr, int x)
+        {
+            var result = new List<int>();
+            var counts = new Dictionary<int, int>();
+
+            foreach (int n in arr)
+            {
+                if (!counts.ContainsKey(n))
+                    counts.Add(n, 1);
+                else
+                    counts[n]++;
+
+                if (counts[n] <= x)
+                    result.Add(n);
+            }
+
+            return result.ToArray();
+        }
     }
 }

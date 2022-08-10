@@ -264,5 +264,15 @@ namespace CodeWarsTests
         {
             Assert.Equal(string.Join(",", new[] { "  *  ", " *** ", "*****" }), string.Join(",", Kyu6.TowerBuilder(3)));
         }
+
+        [Fact]
+        public void DeleteNth()
+        {
+            var expected = new int[] { 1, 1, 3, 3, 7, 2, 2, 2 };
+
+            var actual = Kyu6.DeleteNth(new int[] { 1, 1, 3, 3, 7, 2, 2, 2, 2 }, 3);
+
+            Assert.Equal(expected, actual);
+        }
     }
 }
